@@ -36,17 +36,15 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 /* write all the steps invloved */
 
 **PROGRAM**
-module ripple(clk,sin,q);
-input clk;
-input sin;
-output [3:0] q;
-reg [3:0] q;
-always @(posedge clk)
-begin
-q[0] <= sin;
-q[1] <= q[0];
-q[2] <= q[1];
-q[3] <= q[2];
+module ex12(
+  input wire clk,
+  output reg [3:0] count
+);
+always @(posedge clk) begin 
+    if (count ==4'b1111)
+	     count <= 4'b0000;
+	 else 
+	     count <= count+ 1;
 end
 endmodule 
 
@@ -56,11 +54,12 @@ endmodule
 */
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
-![image](https://github.com/user-attachments/assets/fd2fc03b-93a5-4fef-bc7f-7c38bfe78bdd)
+![image](https://github.com/user-attachments/assets/5dc45f04-8713-4010-be94-b6bf24ae70f4)
+
 
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
-![image](https://github.com/user-attachments/assets/d28f294a-3272-462a-9b0d-7e6197d1b338)
+![image](https://github.com/user-attachments/assets/aecb348e-4c39-4823-b013-d9ca5fb84d8e)
 
 
 **RESULTS**
